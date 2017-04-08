@@ -18,7 +18,7 @@ function aritGeo(arr) {
 		return "Arithmetic";
 	}
 	else if(geo === true) {
-		return" Geometric";
+		return "Geometric";
 	} else return -1;
 
 }
