@@ -1,3 +1,5 @@
+'use strict';
+var aritGeo = require("aritGeo")
 (function(){
   'use strict';
 
