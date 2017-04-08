@@ -1,51 +1,61 @@
+
 (function(){
   'use strict';
 
-  describe("Generate prime numbers in an array when given a value: ", function() {
+  describe("Determine the sequence of an array of numbers: ", function() {
 
-    describe("Case for an invalid value input", function() {
+    describe("Case for an empty array", function() {
 
-      it("should return invalid for an invalid input", function() {
-        expect(aritGeo('abcdefghijklmnopqrstuvwxyz')).toEqual('Invalid');
+      it("should return 0 for an empty array", function() {
+        expect(aritGeo([])).toEqual(0);
       });
 
     });
 
-    describe("Case for a value less than or equal to zero", function() {
+    describe("Case for an arithmetic sequence", function() {
 
-      it("should return 'put num greater than zero' for 0", function() {
-        expect(aritGeo(0)).toEqual('put num greater than zero');
+      it("should return `Arithmetic` for [2, 4, 6, 8, 10]", function() {
+        expect(aritGeo([2, 4, 6, 8, 10])).toEqual('Arithmetic');
       });
 
-      it("should return 'put num greater than zero' for -10", function() {
-        expect(aritGeo(-10)).toEqual('put num greater than zero');
+      it("should return `Arithmetic` for [5, 11, 17, 23, 29, 35, 41]", function() {
+        expect(aritGeo([5, 11, 17, 23, 29, 35, 41])).toEqual('Arithmetic');
       });
 
-      it("should return 'put num greater than zero' for -135", function() {
-        expect(aritGeo(-135)).toEqual('put num greater than zero');
-      });
-    });
-
-    describe("Case for when no prime array is generated", function() {
-
-      it("should return [] for 1", function() {
-        expect(aritGeo(1)).toEqual([]);
+      it("should return `Arithmetic` for [15, 10, 5, 0, -5, -10]", function() {
+        expect(aritGeo([15, 10, 5, 0, -5, -10])).toEqual('Arithmetic');
       });
 
     });
 
-    describe("Case for when prime array is generated", function() {
+    describe("Case for a geometric sequence", function() {
 
-      it("should return [2, 3, 5, 7] for 7", function() {
-        expect(aritGeo(7)).toEqual([2, 3, 5, 7]);
+      it("should return `Geometric` for [2, 6, 18, 54, 162]", function() {
+        expect(aritGeo([2, 6, 18, 54, 162])).toEqual('Geometric');
       });
 
-      it("should return [2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47] for 50", function() {
-        expect(aritGeo(50)).toEqual([2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47]);
+      it("should return `Geometric` for [0.5, 3.5, 24.5, 171.5]", function() {
+        expect(aritGeo([0.5, 3.5, 24.5, 171.5])).toEqual('Geometric');
       });
 
-      it("should return [2] for 2", function() {
-        expect(aritGeo(2)).toEqual([2]);
+      it("should return `Geometric` for [−128, 64, −32, 16, −8]", function() {
+        expect(aritGeo([-128, 64, -32, 16, -8])).toEqual('Geometric');
+      });
+
+    });
+
+    describe("Case for neither arithmetic nor geometric sequence", function() {
+
+      it("should return -1 for [1, 2, 3, 5, 8]", function() {
+        expect(aritGeo([1, 2, 3, 5, 8])).toEqual(-1);
+      });
+
+      it("should return -1 for [1, 3, 6, 10, 15]", function() {
+        expect(aritGeo([1, 3, 6, 10, 15])).toEqual(-1);
+      });
+
+      it("should return -1 for [1, 8, 27, 64, 125]", function() {
+        expect(aritGeo([1, 8, 27, 64, 125])).toEqual(-1);
       });
       
     });
