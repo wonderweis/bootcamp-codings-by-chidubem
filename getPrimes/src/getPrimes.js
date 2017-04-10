@@ -1,5 +1,5 @@
 function getPrimes(value) {
-  if (typeof(value) == "string"){
+  if (typeof(value) === "string"){
     return ("Invalid");
   }
   else if (value <= 0) {
